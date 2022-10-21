@@ -23,13 +23,13 @@ def create_table(c, create_table_sql):
         print(e)
 
 
-def add_data_to_db(cursor, filename, db_name, num_cols):
+def add_data_to_db(cur, filename, db_name, num_cols):
     """add data from csv file to database"""
-    file = open(filename)
+    file = open(filename, encoding="utf8")
     contents = csv.reader(file)
     questionmarks = ", ".join("?" * num_cols)
     insert_records = "INSERT INTO " + db_name + " VALUES " + "(" + questionmarks + ")"
-    cursor.executemany(insert_records, contents)
+    cur.executemany(insert_records, contents)
 
 
 if __name__ == "__main__":
