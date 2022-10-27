@@ -33,7 +33,7 @@ def query_from_news(cursor, query):
 
 if __name__ == "__main__":
     #main()
-    db_connection = create_connection(r"./sqlite/db/news_data.db")
-    cursor = db_connection.cursor()
-    query = """SELECT COUNT(*) FROM news"""
-    query_from_news(cursor, query)
+    db_connection_news = create_connection(r"./sqlite/db/news_data.db")
+    cursor_news = db_connection_news.cursor()
+    query_news = """SELECT COUNT(*) FROM news"""
+    query_from_news(cursor_news, query_news)
