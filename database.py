@@ -23,14 +23,17 @@ def create_table(c, create_table_sql):
         print(e)
 
 
-def add_data_to_db(cur, filename, db_name, num_cols):
+def add_data_to_db(cur, filename, db_name, num_cols, enc="utf-8"):
     """add data from csv file to database"""
-    file = open(filename, encoding="utf8")
+    file = open(filename, encoding=enc)
     contents = csv.reader(file)
+    #delete header from csv file
+    next(contents)
     questionmarks = ", ".join("?" * num_cols)
-    insert_records = "INSERT INTO " + db_name + " VALUES " + "(" + questionmarks + ")"
+    colnames = "(" + ','.join([item[0] for item in cur.execute("SELECT * FROM " + db_name + " LIMIT 1").description[1:]]) + ")"
+    insert_records = "INSERT INTO " + db_name + colnames + " VALUES " + "(" + questionmarks + ")"
     cur.executemany(insert_records, contents)
-
+    print("data added to database!")    
 
 if __name__ == "__main__":
     db_connection = create_connection(r"./sqlite/db/database.db")
