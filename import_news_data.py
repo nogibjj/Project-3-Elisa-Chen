@@ -37,3 +37,4 @@ if __name__ == "__main__":
     cursor_news = db_connection_news.cursor()
     query_news = """SELECT COUNT(*) FROM news"""
     query_from_news(cursor_news, query_news)
+    db_connection_news.close()
