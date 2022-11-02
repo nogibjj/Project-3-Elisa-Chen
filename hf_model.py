@@ -25,4 +25,24 @@ news_df = return_pd_dataset(r"./sqlite/db/news_data.db", query)
 news_df['bias_classification'] = news_df['text'].apply(lambda x: classify(x)[0][0]['label'])
 news_df['score'] = news_df['text'].apply(lambda x: classify(x)[0][0]['score'])
 
-print(news_df)
+#-----------------------------
+#DOUBLE CHECK THIS AND ALSO MOVE TO DATABASE.PY FILE
+
+#save the dataframe to a csv file
+news_df.to_csv(r'./data/news_summary_bias.csv', index = False)
+
+#update the database with the bias classification
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect(r"./sqlite/db/news_data.db")
+c = conn.cursor()
+
+#read the csv file
+df = pd.read_csv(r'./data/news_summary_bias.csv')
+
+#insert the bias classification into the database
+df.to_sql('news', conn, if_exists='replace', index = False)
+
+#close the connection
+conn.close()
