@@ -37,6 +37,7 @@ nltk==3.7
 rouge-score==0.1.2
 py7zr==0.20.0
 evaluate[template]==0.3.0
+huggingface_hub
 #deep learning
 torch==1.12.1
 torchvision==0.13.1
