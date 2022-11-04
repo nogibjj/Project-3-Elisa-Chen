@@ -23,7 +23,9 @@ All source data files are stored under the directory `data`. The database for th
 
 ### Helper Functions
 `database.py`: helper functions for database management (creating tables, adding data to a table from csv etc.)
+
 `import_news_data.py`: script to upload news data to a table called `news` in the `news_data` database
+
 `classification_script.py`: script to apply classifier to query results and return a new SQL query with the aggregated results
 
 ## Results
