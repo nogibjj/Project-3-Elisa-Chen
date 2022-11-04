@@ -12,6 +12,8 @@ This project was created as part of the Data Engineering class IDS 706 at Duke. 
 
 ## Demo Video
 
+https://www.loom.com/share/414613985d574cf3b0b2c5decc0a370d 
+
 ## Methodology
 1. [News data](https://www.kaggle.com/datasets/sunnysai12345/news-summary) was downloaded from Kaggle.
 2. The news data was stored in a new table in a SQLite database
