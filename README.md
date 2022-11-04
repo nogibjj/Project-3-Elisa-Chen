@@ -2,7 +2,7 @@
 
 This repository contains the source code, config files and a short video demo of my project on detecting biasness in news. 
 
-![Project-3-Diagram](https://user-images.githubusercontent.com/25168588/199877939-51537909-1b9c-4569-a54a-c3aadaaef00e.png)
+![Project-3-Diagram](https://user-images.githubusercontent.com/25168588/199878167-2d7683ec-1a5c-4432-ae1f-a73e6d7e99d4.png)
 
 ## Key Objectives and Project Description
 The reliability of news sources is becoming a major concern for the public. Understanding the biasness of various news sources can help the public make better informed decisions about which news sources to trust. In this project, I use a [Bert Based Text Classifier](https://huggingface.co/cffl/bert-base-styleclassification-subjective-neutral?text=I+like+you.+I+love+you) from Hugging Face to determine the degree of biasness of articles posted by [The Guardian News](https://www.theguardian.com/us).
