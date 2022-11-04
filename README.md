@@ -52,7 +52,8 @@ See below the SQL queries used to extract relevant information needed for the cl
     SELECT bias_classification
     , count(*) as count 
     , round(count(*)*100.0/(select count(*) from news),2) as percentage_of_total
-    FROM news GROUP BY bias_classification;
+    FROM news 
+    GROUP BY bias_classification;
 ```
 
 ## Results
