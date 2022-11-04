@@ -1,3 +1,4 @@
+[![Python application test with Github Actions using devcontainers](https://github.com/nogibjj/Project-3-Elisa-Chen/actions/workflows/makefile.yml/badge.svg)](https://github.com/nogibjj/Project-3-Elisa-Chen/actions/workflows/makefile.yml)
 # Project-3-Elisa-Chen - News Neutrality Classifier
 
 This repository contains the source code, config files and a short video demo of my project on detecting biasness in news. 
