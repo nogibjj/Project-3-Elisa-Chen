@@ -30,6 +30,28 @@ All source data files are stored under the directory `data`. The database for th
 
 `classification_script.py`: script to apply classifier to query results and return a new SQL query with the aggregated results
 
+## SQL Queries
+See below the SQL queries used to extract relevant information needed for the classifier:
+```SELECT 
+    CASE WHEN author IS NULL THEN 'Unknown' ELSE author END AS author
+    ,SUBSTR(date,0,12) as date
+    ,lower(beadlines) as headlines
+    ,SUBSTR(URL, INSTR(URL, '://' ) + 3, MAX(INSTR(URL, '.com/'), INSTR(URL, '.in/')) - INSTR(URL, '://') + 1) as domain
+    ,lower(text) as text
+    ,lower(ctext) as ctext
+    FROM news
+    WHERE SUBSTR(URL, INSTR(URL, '://' ) + 3, MAX(INSTR(URL, '.com/'), INSTR(URL, '.in/')) - INSTR(URL, '://') + 1) like '%theguardian%'
+    ORDER BY date DESC
+    ;
+```
+
+```
+    SELECT bias_classification
+    , count(*) as count 
+    , round(count(*)*100.0/(select count(*) from news),2) as percentage_of_total
+    FROM news GROUP BY bias_classification;
+```
+
 ## Results
 Based on the data, we can observe that over one third of the articles written in the Guardian between the timeperiod 2016-2017 were considered to have subjective clauses, which raises questions about the objectivity of the Guardian articles written during the timeperiod. 
 

@@ -35,14 +35,14 @@ def add_data_to_db(cur, filename, db_name, num_cols, enc="utf-8"):
     cur.executemany(insert_records, contents)
     print("data added to database!")    
 
-def modify_table(path, query):
+def modify_table(path, q):
     """modify table with a new query"""
-    db_connection = create_connection(path)
-    cursor = db_connection.cursor()
-    cursor.execute(query)
+    db_conn = create_connection(path)
+    cur = db_connection.cursor()
+    cur.execute(q)
     print("table modified!")
-    db_connection.commit()
-    db_connection.close()
+    db_conn.commit()
+    db_conn.close()
 
 if __name__ == "__main__":
     db_connection = create_connection(r"./sqlite/db/database.db")
